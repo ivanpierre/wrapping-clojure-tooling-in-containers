@@ -3,9 +3,9 @@
 # This will be mostly clojure!
 #
 
-TAG=markmandel/clojure-dev
-NAME=wrapping-clojure-shell
-WEB_PORT=8080
+TAG=sdroadie/clojure-dev
+NAME=figwheel-ring-wrapper
+WEB_PORT=3449
 
 #Directory that this Makefile is in.
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
@@ -32,6 +32,7 @@ shell:
 		-v ~/.m2:/home/$(USER)/.m2 \
 		-v $(current_path)/dev/profiles.clj:/home/$(USER)/.lein/profiles.clj \
 		-v $(current_path)/dev/zshrc:/home/$(USER)/.zshrc \
+		-v /home/$(USER)/emacs.d/:/home/$(USER)/.emacs.d
 		-v $(current_path):/project \
 		-it $(TAG) /root/startup.sh
 

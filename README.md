@@ -1,4 +1,4 @@
-Example of Wrapping Clojure Development Tooling in a Containers
+Wrapping Clojure Development Tooling in a Containers
 ===============================================================
 
 Code demo for my talk "Wrapping Clojure Development Tooling in a Containers".
@@ -15,7 +15,8 @@ use this template for your own project
 The name of the container when it is running.
 
 ### WEB_PORT
-The port your web application runs on inside the docker container.
+The port your web application runs on inside the docker container. (I switched this to
+port 3449, for Figwheel.)
 
 ## Make Targets
 
@@ -38,6 +39,12 @@ Mount the development shell to the local /tmp directory via [sshfs](http://fuse.
 
 ### chrome
 Opens up chrome to the local port that is forwarded for port 8080 on the host.
+
+### firefox
+Opens up firefox to the local port that is forwarded for port 3449 on the host.
+
+### safari
+Opens up safari to the local port that is forwarded for port 3449 on the host.
 
 ### emacs
 Uses [Xpra](https://www.xpra.org/) to open up emacs as a gui on the host.

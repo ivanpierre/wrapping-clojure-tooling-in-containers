@@ -32,7 +32,7 @@ shell:
 		-v ~/.m2:/home/$(USER)/.m2 \
 		-v $(current_path)/dev/profiles.clj:/home/$(USER)/.lein/profiles.clj \
 		-v $(current_path)/dev/zshrc:/home/$(USER)/.zshrc \
-		-v /home/$(USER)/emacs.d/:/home/$(USER)/.emacs.d
+		-v /home/$(USER)/.emacs.d/:/home/$(USER)/.emacs.d \
 		-v $(current_path):/project \
 		-it $(TAG) /root/startup.sh
 
@@ -48,6 +48,18 @@ shell-mount-jvm:
 # open a port forwarded port from Docker in Chrome! (Defaults to 8080)
 chrome:
 	google-chrome http://localhost:$(call getPort,$(WEB_PORT))
+
+# open a port forwarded port from Docker in Firefox! (Defaults to 8080)
+firefox:
+	firefox	http://localhost:$(call getPort,$(WEB_PORT))
+
+# open a port forwarded port from Docker in Safari (Defaults to 8080)
+safari:
+ifeq ("$(shell uname)", "Darwin")
+	open -a safari http://localhost:$(call getPort,$(WEB_PORT))
+else
+	@echo "Only available on MacOSX."
+endif
 
 # emacs
 emacs:

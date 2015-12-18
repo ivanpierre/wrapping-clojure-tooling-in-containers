@@ -10,3 +10,5 @@ source $ZSH/oh-my-zsh.sh
 
 #yes, I suck.
 export EDITOR='nano -w'
+
+export WEBSOCKET_HOST=`hostname -I`
